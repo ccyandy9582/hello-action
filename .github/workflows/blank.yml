@@ -44,7 +44,7 @@ jobs:
           echo "rollbacking..."
           echo "rollback successfully"
   runSript:
-    runs-on: ubuntu-latest,
+    runs-on: ubuntu-latest
     steps: 
       - name: show ${{github}}
         run: |
