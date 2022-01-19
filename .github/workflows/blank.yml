@@ -33,4 +33,4 @@ jobs:
       - name: Run a multi-line script
         run: |
           VAR1 = "test, and deploy your project."
-          echo "$VAR1"
+          echo VAR1
