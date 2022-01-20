@@ -71,7 +71,13 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '11'
-      - run: |
+      - name: check java
+        run: |
           java --version
           javac --version
           echo $JAVA_HOME
+      - name: compile java
+        run: |
+          javac ./Hello.java
+      - name: exe Hello
+        run: java ./Hello
