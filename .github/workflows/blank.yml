@@ -48,7 +48,8 @@ jobs:
     steps: 
       - name: list dir
         run: |
-          echo $HOME
+          echo $GITHUB_TOKEN
+          echo ${{GITHUB_TOKEN}}
       - name: run script
         run: |
           chmod +x ./scripts/helloworld.sh
