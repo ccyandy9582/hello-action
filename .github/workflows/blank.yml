@@ -46,7 +46,11 @@ jobs:
   runScript:
     runs-on: ubuntu-latest
     steps: 
-      - name: show ${{github}}
+      - name: list dir
+        run: |
+          pwd
+          ls
+      - name: run script
         run: |
           chmod +x ./scripts/helloworld.sh
           ./scripts/helloworld.sh
