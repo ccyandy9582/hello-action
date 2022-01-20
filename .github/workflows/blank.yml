@@ -48,8 +48,8 @@ jobs:
     steps: 
       - name: list dir
         run: |
-          pwd
-          ls
+          echo pwd
+          echo ls .
       - name: run script
         run: |
           chmod +x ./scripts/helloworld.sh
