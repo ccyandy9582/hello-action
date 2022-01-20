@@ -74,3 +74,4 @@ jobs:
       - run: |
           java --version
           javac --version
+          echo $JAVA_HOME
