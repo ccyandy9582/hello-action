@@ -47,5 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: show ${{github}}
-        run: ./.github/scripts/helloworld.sh
+        run: |
+          chmod +x ./scripts/helloworld.sh
+          ./scripts/helloworld.sh
         shell: bash
