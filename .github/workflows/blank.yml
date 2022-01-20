@@ -43,21 +43,31 @@ jobs:
   #         echo "start rollback"
   #         echo "rollbacking..."
   #         echo "rollback successfully"
-  runScript:
+  # runScript:
+  #   runs-on: ubuntu-latest
+  #   steps: 
+  #     - uses: actions/checkout@v2
+  #     - name: list dir
+  #       run: |
+  #         ls -al
+  #     - name: run script
+  #       run: |
+  #         chmod +x ./.github/scripts/helloworld.sh
+  #         ./.github/scripts/helloworld.sh
+  #       shell: bash
+  #     - name: set message
+  #       run: |
+  #         echo "::debug::Set the Octocat variable"
+  #     - name: get message
+  #       run: |
+  #         echo "please download and look into logs"
+  runJava:
     runs-on: ubuntu-latest
-    steps: 
+    steps:
       - uses: actions/checkout@v2
-      - name: list dir
-        run: |
-          ls -al
-      - name: run script
-        run: |
-          chmod +x ./.github/scripts/helloworld.sh
-          ./.github/scripts/helloworld.sh
-        shell: bash
-      - name: set message
-        run: |
-          echo "::debug::Set the Octocat variable"
-      - name: get message
-        run: |
-          echo ${{debug}}
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: '11'
+          java-package: jre
+      - run: java -cp java ./java/Hello
