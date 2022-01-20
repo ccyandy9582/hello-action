@@ -52,8 +52,8 @@ jobs:
           ls -al
       - name: run script
         run: |
-          chmod +x ./scripts/helloworld.sh
-          ./scripts/helloworld.sh
+          chmod +x ./.github/scripts/helloworld.sh
+          ./.github/scripts/helloworld.sh
         shell: bash
       - name: set message
         run: |
