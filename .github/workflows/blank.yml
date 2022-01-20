@@ -70,4 +70,4 @@ jobs:
           distribution: 'zulu'
           java-version: '11'
           java-package: jre
-      - run: java -cp java ./java/Hello
+      - run: java -cp java Hello
