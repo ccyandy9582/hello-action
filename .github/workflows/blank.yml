@@ -50,11 +50,11 @@ jobs:
       - name: list dir
         run: |
           ls -al
-      # - name: run script
-      #   run: |
-      #     chmod +x ./scripts/helloworld.sh
-      #     ./scripts/helloworld.sh
-      #   shell: bash
+      - name: run script
+        run: |
+          chmod +x ./scripts/helloworld.sh
+          ./scripts/helloworld.sh
+        shell: bash
       - name: set message
         run: |
           echo "::debug::Set the Octocat variable"
