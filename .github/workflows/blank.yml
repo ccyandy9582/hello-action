@@ -60,4 +60,4 @@ jobs:
           echo "::debug::Set the Octocat variable"
       - name: get message
         run: |
-        
+          echo ${{debug}}
