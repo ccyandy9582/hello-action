@@ -71,6 +71,11 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '11'
+      - name: checkout another repo
+        uses: actions/checkout@master
+        with:
+          repository: ccyandy9582/Todo-list
+          token: ${{secrets.my_pat}}
       - name: set variable
         run: |
           echo "JRE_HOME=$(echo ${JAVA_HOME}/jre)" >> $GITHUB_ENV
