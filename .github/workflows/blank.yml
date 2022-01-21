@@ -77,7 +77,7 @@ jobs:
           repository: ccyandy9582/Todo-list
           token: ${{secrets.GITHUB_TOKEN}}
       - name: show directory with 2 repos
-        run: echo ls -al
+        run: ls -al
 #      - name: set variable
 #        run: |
 #          echo "JRE_HOME=$(echo ${JAVA_HOME}/jre)" >> $GITHUB_ENV
