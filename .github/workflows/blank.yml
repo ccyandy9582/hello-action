@@ -65,9 +65,6 @@ jobs:
   #         echo "please download and look into logs"
   runJava:
     runs-on: ubuntu-latest
-    env:
-      JRE_HOME: ${{JAVA_HOME}}/jre
-      CLASSPATH: .:${{JAVA_HOME}}/lib:${{JRE_HOME}}/lib
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v2
