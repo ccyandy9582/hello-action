@@ -71,6 +71,10 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '11'
+      - name: set variable
+        run: |
+          export JRE_HOME = ${JAVA_HOME}/jre
+          export CLASSPATH = .:${JAVA_HOME}/lib:${JRE_HOME}/lib
       - name: check java
         run: |
           java --version
