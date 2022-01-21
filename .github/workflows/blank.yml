@@ -79,5 +79,6 @@ jobs:
       - name: compile java
         run: |
           javac ./Hello.java
+      - run: javap ./Hello.class
       - name: exe Hello
         run: java ./Hello
