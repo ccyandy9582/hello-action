@@ -65,18 +65,15 @@ jobs:
   #         echo "please download and look into logs"
   runJava:
     runs-on: ubuntu-latest
+    env:
+      JRE_HOME: ${JAVA_HOME}/jre
+      CLASSPATH: .:${JAVA_HOME}/lib:${JRE_HOME}/lib
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v2
         with:
           distribution: 'zulu'
           java-version: '11'
-      - name: set variable
-        run: |
-#         echo "JRE_HOME=${JAVA_HOME}/jre" >> $GITHUB_ENV
-#         echo "CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib" >> $GITHUB_ENV
-          echo export JRE_HOME = ${JAVA_HOME}/jre
-          echo CLASSPATH = .:${JAVA_HOME}/lib:${JRE_HOME}/lib
       - name: check java
         run: |
           java --version
