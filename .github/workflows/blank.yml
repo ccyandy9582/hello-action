@@ -81,6 +81,10 @@ jobs:
           path: './Todo'
       - name: show directory with 2 repos
         run: ls -al
+      - name: list Todo
+        run: ls -al ./Todo
+      - name: list hello-action
+        run: ls -al ./hello-action
 #      - name: set variable
 #        run: |
 #          echo "JRE_HOME=$(echo ${JAVA_HOME}/jre)" >> $GITHUB_ENV
