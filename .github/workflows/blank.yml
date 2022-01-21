@@ -76,6 +76,9 @@ jobs:
           java --version
           javac --version
           echo $JAVA_HOME
+          echo $JRE_HOME
+          echo $CLASSPATH
+          echo $PATH
       - name: compile java
         run: |
           javac ./Hello.java
