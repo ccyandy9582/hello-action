@@ -67,6 +67,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          path: './hello-action'
       - uses: actions/setup-java@v2
         with:
           distribution: 'zulu'
@@ -76,6 +78,7 @@ jobs:
         with:
           repository: ccyandy9582/Todo-list
           token: ${{secrets.GITHUB_TOKEN}}
+          path: './Todo'
       - name: show directory with 2 repos
         run: ls -al
 #      - name: set variable
