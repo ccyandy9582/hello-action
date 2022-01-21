@@ -73,8 +73,10 @@ jobs:
           java-version: '11'
       - name: set variable
         run: |
-          ${JAVA_HOME}/jre >> $JRE_HOME
-          .:${JAVA_HOME}/lib:${JRE_HOME}/lib >> $CLASSPATH
+#         echo "JRE_HOME=${JAVA_HOME}/jre" >> $GITHUB_ENV
+#         echo "CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib" >> $GITHUB_ENV
+          echo export JRE_HOME = ${JAVA_HOME}/jre
+          echo CLASSPATH = .:${JAVA_HOME}/lib:${JRE_HOME}/lib
       - name: check java
         run: |
           java --version
