@@ -76,7 +76,7 @@ jobs:
       - name: checkout another repo
         uses: actions/checkout@master
         with:
-          repository: ccyandy9582/Todo-list
+          repository: ccyandy9582/js-data-structure-and-algorithms
           token: ${{secrets.GITHUB_TOKEN}}
           path: './Todo'
       - name: show directory with 2 repos
@@ -85,6 +85,14 @@ jobs:
         run: ls -al ./Todo
       - name: list hello-action
         run: ls -al ./hello-action
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: run test
+        run: |
+          cd ./Todo
+          npm run test
 #      - name: set variable
 #        run: |
 #          echo "JRE_HOME=$(echo ${JAVA_HOME}/jre)" >> $GITHUB_ENV
