@@ -76,21 +76,23 @@ jobs:
         with:
           repository: ccyandy9582/Todo-list
           token: ${{secrets.GITHUB_TOKEN}}
-      - name: set variable
-        run: |
-          echo "JRE_HOME=$(echo ${JAVA_HOME}/jre)" >> $GITHUB_ENV
-          echo "CLASSPATH=$(echo .:${JAVA_HOME}/lib:${JRE_HOME}/lib)" >> $GITHUB_ENV
-      - name: check java
-        run: |
-          java --version
-          javac --version
-          echo $JAVA_HOME
-          echo $JRE_HOME
-          echo $CLASSPATH
-          echo $PATH
-      - name: compile java
-        run: |
-          javac ./Hello.java
-      - run: javap ./Hello.class
-      - name: exe Hello
-        run: java ./Hello
+      - name: show directory with 2 repos
+        run: echo ls -al
+#      - name: set variable
+#        run: |
+#          echo "JRE_HOME=$(echo ${JAVA_HOME}/jre)" >> $GITHUB_ENV
+#          echo "CLASSPATH=$(echo .:${JAVA_HOME}/lib:${JRE_HOME}/lib)" >> $GITHUB_ENV
+#      - name: check java
+#        run: |
+#          java --version
+#          javac --version
+#          echo $JAVA_HOME
+#          echo $JRE_HOME
+#          echo $CLASSPATH
+#          echo $PATH
+#      - name: compile java
+#        run: |
+#          javac ./Hello.java
+#      - run: javap ./Hello.class
+#      - name: exe Hello
+#        run: java ./Hello
