@@ -22,6 +22,27 @@ on:
       environment:
         type: environment
 
+  workflow_dispatch:
+    inputs:
+      name:
+        type: choice
+        description: Who to greet
+        required: false
+        options:
+          - monalisa
+          - cschleiden
+      message:
+        description: "dispatch message"
+        required: true
+      use-emoji:
+        type: boolean
+        required: false
+        description: Include 🎉🤣 emojis
+      environment:
+        description: "dispatch env"
+        required: false
+        type: environment
+
 jobs:
   greet:
     runs-on: ubuntu-latest
