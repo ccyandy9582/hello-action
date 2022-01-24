@@ -15,54 +15,6 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  # deploy:
-  #   # The type of runner that the job will run on
-  #   runs-on: ubuntu-latest
-
-  #   # Steps represent a sequence of tasks that will be executed as part of the job
-  #   steps:
-  #     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-  #     - uses: actions/checkout@v2
-
-  #     # Runs a single command using the runners shell
-  #     - name: check xxx
-  #       run: echo "xxx is good"
-
-  #     # Runs a set of commands using the runners shell
-  #     - name: check yyy
-  #       run: |
-  #         echo "check yyy"
-  #         echo "yyy is good"
-
-  # rollback:
-  #   runs-on: ubuntu-latest
-  #   needs: deploy
-  #   steps:
-  #     - name: prepear rollback
-  #       run: |
-  #         echo "start rollback"
-  #         echo "rollbacking..."
-  #         echo "rollback successfully"
-
-  # runScript:
-  #   runs-on: ubuntu-latest
-  #   steps: 
-  #     - uses: actions/checkout@v2
-  #     - name: list dir
-  #       run: |
-  #         ls -al
-  #     - name: run script
-  #       run: |
-  #         chmod +x ./.github/scripts/helloworld.sh
-  #         ./.github/scripts/helloworld.sh
-  #       shell: bash
-  #     - name: set message
-  #       run: |
-  #         echo "::debug::Set the Octocat variable"
-  #     - name: get message
-  #       run: |
-  #         echo "please download and look into logs"
   runJava:
     runs-on: ubuntu-latest
     steps:
@@ -93,21 +45,10 @@ jobs:
         run: |
           cd ./Todo
           npm run test
-#      - name: set variable
-#        run: |
-#          echo "JRE_HOME=$(echo ${JAVA_HOME}/jre)" >> $GITHUB_ENV
-#          echo "CLASSPATH=$(echo .:${JAVA_HOME}/lib:${JRE_HOME}/lib)" >> $GITHUB_ENV
-#      - name: check java
-#        run: |
-#          java --version
-#          javac --version
-#          echo $JAVA_HOME
-#          echo $JRE_HOME
-#          echo $CLASSPATH
-#          echo $PATH
-#      - name: compile java
-#        run: |
-#          javac ./Hello.java
-#      - run: javap ./Hello.class
-#      - name: exe Hello
-#        run: java ./Hello
+  callFromAPI:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Event Enformation
+        if: github.event.action == 'ping'
+        run: |
+          echo "Event '${{github.event.action}}' received from '${{github.event.client_payload.repository}}'"
