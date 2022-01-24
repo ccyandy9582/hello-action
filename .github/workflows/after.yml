@@ -1,0 +1,31 @@
+# This is a basic workflow to help you get started with Actions
+
+name: after test
+
+on:
+  # this workflow will run after 'test input' is 'completed'
+  workflow_run:
+    workflows: [test input]
+    types: [completed]
+    inputs:
+      name:
+        type: choice
+        description: Who to greet
+        options:
+          - monalisa
+          - cschleiden
+      message:
+        required: true
+      use-emoji:
+        type: boolean
+        description: Include 🎉🤣 emojis
+      environment:
+        type: environment
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send greeting
+        run: echo "${{ github.event.inputs.message }} ${{ fromJSON('["", "🥳"]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
