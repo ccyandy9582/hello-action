@@ -7,46 +7,15 @@ on:
   workflow_run:
     workflows: [test input]
     types: [completed]
-    inputs:
-      name:
-        type: choice
-        description: Who to greet
-        options:
-          - monalisa
-          - cschleiden
-      message:
-        required: true
-      use-emoji:
-        type: boolean
-        description: Include 🎉🤣 emojis
-      environment:
-        type: environment
-
-  workflow_dispatch:
-    inputs:
-      name:
-        type: choice
-        description: Who to greet
-        required: false
-        options:
-          - monalisa
-          - cschleiden
-      message:
-        description: "dispatch message"
-        required: true
-      use-emoji:
-        type: boolean
-        required: false
-        description: Include 🎉🤣 emojis
-      environment:
-        description: "dispatch env"
-        required: false
-        type: environment
 
 jobs:
   greet:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Get input
+        run: |
+          read varname
+          echo $varname
       - name: Send greeting
         run: echo "${{ github.event.inputs.message }} ${{ fromJSON('["", "🥳"]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
