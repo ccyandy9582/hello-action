@@ -19,5 +19,4 @@ jobs:
         run: |
           curl -X POST https://api.github.com/repos/ccyandy9582/hello-action/dispatches \
           -H 'Accept: application/vnd.github.everest-preview+json' \
-          -u ${{secrets.ACCESS_TOKEN}} \
           -d '{"event_type": "ping", "client_payload": {"repository": "'"$GITHUB_REPOSITORY"'"}}'
