@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          repository: ccyandy9582/no-yaml-actions
+          repository: ccyandy9582/no-yaml-actions.git
           token: ${{secrets.GITHUB_TOKEN}}
           path: './noYaml'
           ref: main
