@@ -6,14 +6,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  greet:
+  no-yaml:
     runs-on: ubuntu-latest
 
     steps:
       - name: run no yaml script
-        uses: action/checkout@v2
-          with:
-            path: './noYaml'
+      - uses: actions/checkout@v2
+        with:
+          repository: ccyandy9582/no-yaml-actions
+          token: ${{secrets.GITHUB_TOKEN}}
+          path: './noYaml'
         run: |
           ls .
           cd ./noYaml
