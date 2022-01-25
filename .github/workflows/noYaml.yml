@@ -10,11 +10,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
         with:
           repository: ccyandy9582/no-yaml-actions
           token: ${{secrets.GITHUB_TOKEN}}
           path: './noYaml'
+          ref: main
       - name: run no yaml script
         run: |
           ls .
