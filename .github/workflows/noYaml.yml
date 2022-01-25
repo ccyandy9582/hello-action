@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           repository: ccyandy9582/no-yaml-actions.git
-          token: ${{secrets.GH_PAT}}
+          token: ${{secrets.ACCESS_TOKEN}}
           path: './noYaml'
           ref: main
       - name: run no yaml script
