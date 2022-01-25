@@ -1,19 +1,21 @@
 # This is a basic workflow to help you get started with Actions
 
-name: after test
+name: test api
 
 on:
-  # this workflow will run after 'test input' is 'completed'
-  workflow_run:
-    workflows: [test input]
-    types: [completed]
+#   this workflow will run after 'test input' is 'completed'
+#    workflow_run:
+#      workflows: [test input]
+#      types: [completed]
+  workflow_dispatch:
+
 
 jobs:
   greet:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Send greeting
+      - name: dispatches
         run: echo "${{ github.event.inputs.message }} ${{ fromJSON('["", "🥳"]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
       - name: call enhancement
         run: |
