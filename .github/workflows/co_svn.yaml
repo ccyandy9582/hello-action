@@ -39,8 +39,8 @@ jobs:
           ls
           cd ./checkout
           svn co svn://localhost/springcloud_config
-          ls
+          ls -al
       - name: move git to svn
         run: |
-          mv ../git/ ./springcloud_config
+          mv ../git ./springcloud_config
           ls ./springcloud_config
