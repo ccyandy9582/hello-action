@@ -57,4 +57,5 @@ jobs:
           mkdir new_co
           cd new_co
           svn co svn://localhost/springcloud_config
+          cd springcloud_config
           ls -al
