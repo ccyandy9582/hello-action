@@ -33,6 +33,9 @@ jobs:
           netstat -ntlp |grep 3690
       - name: "ipconfig"
         run: ifconfig
-      - name: commit to svn
+      - name: checkout
         run: |
-          svn import ./git_pro /svn/repos/springcloud_config -m "commit" --username NAME --password PASSWD
+          mkdir ./checkout
+          cd ./checkout
+          svn co svn://localhost/springcloud_config
+          ls
