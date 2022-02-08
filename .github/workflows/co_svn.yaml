@@ -1,0 +1,38 @@
+# This is a basic workflow to help you get started with Actions
+
+name: checkout svn
+
+on:
+  workflow_dispatch:
+
+jobs:
+  checkout:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+          path: ./git_pro
+      - name: install svn
+        run: |
+          sudo apt-get install subversion
+          sudo apt-get install apache2
+          sudo apt-get install apache2-utils
+      - name: check svn version
+        run: svn --version
+      - name: create new repo
+        run: |
+          sudo mkdir -p /svn/repos/springcloud_config
+          sudo svnadmin create /svn/repos/springcloud_config
+          sudo chmod 777 /svn/repos/springcloud_config
+          sudo chown -R www-data:www-data /svn/repos/
+      - name: start svn
+        run: |
+          svnserve -d -r /svn/repos/
+          netstat -ntlp |grep 3690
+      - name: "ipconfig"
+        run: ifconfig
+      - name: commit to svn
+        run: |
+          svn import ./git_pro /svn/repos/springcloud_config -m "commit" --username NAME --password PASSWD
