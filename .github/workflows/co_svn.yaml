@@ -49,6 +49,7 @@ jobs:
       - name: commit
         run: |
           cd ./checkout/springcloud_config
+          ls -al
           svn add .
           svn ci
           svn info
