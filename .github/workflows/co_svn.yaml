@@ -10,10 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-        with:
-          token: ${{secrets.GITHUB_TOKEN}}
-          path: ./git_pro
       - name: install svn
         run: |
           sudo apt-get install subversion
@@ -39,3 +35,9 @@ jobs:
           cd ./checkout
           svn co svn://localhost/springcloud_config
           ls
+      - uses: actions/checkout@v2
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+          path: ./checkout/springcloud_config
+        run: |
+          ls ./springcloud_config
