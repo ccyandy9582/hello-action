@@ -28,6 +28,8 @@ jobs:
           sudo chmod 777 /svn/repos/springcloud_config
           sudo chown -R www-data:www-data /svn/repos/
           ls -al /svn/repos/springcloud_config/conf
+          cat /svn/repos/springcloud_config/conf/authz
+#          sed 's/target/changeTo/1' /svn/repos/springcloud_config/conf/authz
       - name: start svn
         run: |
           svnserve -d -r /svn/repos/
@@ -39,7 +41,7 @@ jobs:
           mkdir ./checkout
           ls -al
           cd ./checkout
-          svn co svn+sshserver://localhost/springcloud_config
+          svn co svn://localhost/springcloud_config
           ls -al
           cd ..
           ls -al
