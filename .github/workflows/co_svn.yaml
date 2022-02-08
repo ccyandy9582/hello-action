@@ -29,7 +29,8 @@ jobs:
           sudo chown -R www-data:www-data /svn/repos/
           ls -al /svn/repos/springcloud_config/conf
           cat /svn/repos/springcloud_config/conf/authz
-#          sed 's/target/changeTo/1' /svn/repos/springcloud_config/conf/authz
+          sed 's/[groups]/[groups]\n [/]\n admin= rw/1' /svn/repos/springcloud_config/conf/authz
+          cat /svn/repos/springcloud_config/conf/authz
       - name: start svn
         run: |
           svnserve -d -r /svn/repos/
