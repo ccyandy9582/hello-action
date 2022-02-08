@@ -15,5 +15,5 @@ jobs:
           token: ${{secrets.GITHUB_TOKEN}}
       - name: create new file
         run: |
-          cat foo.txt
+          touch foo.txt
           ls
