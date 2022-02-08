@@ -49,6 +49,7 @@ jobs:
       - name: commit
         run: |
           cd ./checkout/springcloud_config
+          svn add .
           svn ci
           svn info
       - name: varify commit result
