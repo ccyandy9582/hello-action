@@ -52,6 +52,9 @@ jobs:
           svn commit -m "svn commit"
       - name: varify commit result
         run: |
-          cd ../../new_co
+          cd ..
+          cd ..
+          mkdir new_co
+          cd new_co
           svn co svn://localhost/springcloud_config
           ls -al
