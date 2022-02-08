@@ -48,4 +48,5 @@ jobs:
           ls -al ./checkout/springcloud_config
       - name: commit
         run: |
+          cd ./checkout/springcloud_config
           svn commit -m "svn commit"
