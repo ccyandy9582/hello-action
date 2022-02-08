@@ -36,11 +36,13 @@ jobs:
       - name: checkout
         run: |
           mkdir ./checkout
-          ls
+          ls -al
           cd ./checkout
           svn co svn://localhost/springcloud_config
           ls -al
+          cd ..
+          ls -al
       - name: move git to svn
         run: |
-          mv ../git ./springcloud_config
-          ls ./springcloud_config
+          mv ./git/ ./checkout/springcloud_config
+          ls -al ./checkout/springcloud_config
