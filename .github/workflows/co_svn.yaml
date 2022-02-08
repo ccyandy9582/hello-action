@@ -51,7 +51,7 @@ jobs:
           cd ./checkout/springcloud_config
           ls -al
           svn add ./git
-          svn ci
+          svn ci -m "hi, svn"
           svn info
       - name: varify commit result
         run: |
