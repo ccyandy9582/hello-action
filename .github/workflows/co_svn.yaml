@@ -36,6 +36,7 @@ jobs:
       - name: checkout
         run: |
           mkdir ./checkout
+          ls
           cd ./checkout
           svn co svn://localhost/springcloud_config
           ls
