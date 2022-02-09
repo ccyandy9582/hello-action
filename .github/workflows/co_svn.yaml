@@ -31,7 +31,7 @@ jobs:
           echo ===================================================================
           cat /svn/repos/springcloud_config/conf/authz
           echo ===================================================================
-          sudo sed -i 's!\# harry_sally_and_joe = harry,sally,&joe!\[/\]\nadmin=rw!2' /svn/repos/springcloud_config/conf/authz
+          sudo sed -i 's!\# harry_sally_and_joe = harry,sally,&joe!\[/\]\nadmin=rw!1' /svn/repos/springcloud_config/conf/authz
           echo ===================================================================
           cat /svn/repos/springcloud_config/conf/authz
       - name: start svn
