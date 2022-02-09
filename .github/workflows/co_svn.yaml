@@ -53,7 +53,7 @@ jobs:
           mkdir ./checkout
           ls -al
           cd ./checkout
-          svn co svn://localhost/springcloud --username svn_user --password svn_pw
+          svn co svn://localhost/springcloud --username ${{svn_user}} --password ${{svn_pw}}
           ls -al
           cd ..
           ls -al
