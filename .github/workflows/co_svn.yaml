@@ -38,6 +38,7 @@ jobs:
           
           sudo chown -R daemon /svn/repos
           sudo chmod -R 755 /svn/repos
+          chown -R www-data:www-data /svn/repos
       - name: start svn
         run: |
           svnserve -d -r /svn/repos/
