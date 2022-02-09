@@ -70,6 +70,6 @@ jobs:
           cd ..
           mkdir new_co
           cd new_co
-          svn co svn://localhost/springcloud_config
+          svn co svn://localhost/springcloud_config --username admin --password 123
           cd springcloud_config
           ls -al
