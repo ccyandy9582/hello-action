@@ -28,16 +28,13 @@ jobs:
           sudo chmod 777 /svn/repos/springcloud_config
           sudo chown -R www-data:www-data /svn/repos/
           ls -al /svn/repos/springcloud_config/conf
-          echo ===================================================================
-          cat /svn/repos/springcloud_config/conf/svnserve.conf
-          echo ===================================================================
           sudo sed -i 's!\# harry_sally_and_joe = harry,sally,&joe!\# harry_sally_and_joe = harry,sally,&joe\n\[/\]\nadmin=rw!1' /svn/repos/springcloud_config/conf/authz
+          
           sudo sed -i 's!sallyssecret!sallyssecret\nadmin=123!g' /svn/repos/springcloud_config/conf/passwd
+          
           sudo sed -i 's!# anon-access = read!anon-access = read\nauth-access = write!g' /svn/repos/springcloud_config/conf/svnserve.conf
           sudo sed -i 's!# password-db = passwd!password-db = passwd!g' /svn/repos/springcloud_config/conf/svnserve.conf
           sudo sed -i 's!# authz-db = authz!authz-db = authz!g' /svn/repos/springcloud_config/conf/svnserve.conf
-          echo ===================================================================
-          cat /svn/repos/springcloud_config/conf/svnserve.conf
       - name: start svn
         run: |
           svnserve -d -r /svn/repos/
@@ -49,7 +46,7 @@ jobs:
           mkdir ./checkout
           ls -al
           cd ./checkout
-          svn co svn://localhost/springcloud_config
+          svn co svn://admin:123@localhost/springcloud_config
           ls -al
           cd ..
           ls -al
