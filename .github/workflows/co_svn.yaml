@@ -35,6 +35,9 @@ jobs:
           sudo sed -i 's!# anon-access = read!anon-access = read\nauth-access = write!g' /svn/repos/springcloud_config/conf/svnserve.conf
           sudo sed -i 's!# password-db = passwd!password-db = passwd!g' /svn/repos/springcloud_config/conf/svnserve.conf
           sudo sed -i 's!# authz-db = authz!authz-db = authz!g' /svn/repos/springcloud_config/conf/svnserve.conf
+          
+          sudo chown -R daemon /svn/repos
+          sudo chmod -R 755 /svn/repos
       - name: start svn
         run: |
           svnserve -d -r /svn/repos/
