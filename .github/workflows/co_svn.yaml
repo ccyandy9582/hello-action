@@ -33,7 +33,7 @@ jobs:
           echo ===================================================================
           sed 's!\[groups\]!\[groups\]\n\[/\]\nadmin=rw!1' /svn/repos/springcloud_config/conf/authz > authz
           echo ===================================================================
-#          cat /svn/repos/springcloud_config/conf/authz
+#         cat /svn/repos/springcloud_config/conf/authz
           cat authz
       - name: start svn
         run: |
