@@ -27,18 +27,18 @@ jobs:
         run: svn --version
       - name: create new repo
         run: |
-          sudo mkdir -p /svn/repos/springcloud_config
-          sudo svnadmin create /svn/repos/springcloud_config
-          sudo chmod 777 /svn/repos/springcloud_config
+          sudo mkdir -p /svn/repos/springcloud
+          sudo svnadmin create /svn/repos/springcloud
+          sudo chmod 777 /svn/repos/springcloud
           sudo chown -R www-data:www-data /svn/repos/
-          ls -al /svn/repos/springcloud_config/conf
-          sudo sed -i 's!\# harry_sally_and_joe = harry,sally,&joe!\# harry_sally_and_joe = harry,sally,&joe\n\[/\]\n=rw!1' /svn/repos/springcloud_config/conf/authz
+          ls -al /svn/repos/springcloud/conf
+          sudo sed -i 's!\# harry_sally_and_joe = harry,sally,&joe!\# harry_sally_and_joe = harry,sally,&joe\n\[/\]\n=rw!1' /svn/repos/springcloud/conf/authz
           
-          sudo sed -i 's!sallyssecret!sallyssecret\n$svn_user=$svn_pw!g' /svn/repos/springcloud_config/conf/passwd
+          sudo sed -i 's!sallyssecret!sallyssecret\n$svn_user=$svn_pw!g' /svn/repos/springcloud/conf/passwd
           
           sudo sed -i 's!# anon-access = read!anon-access = read\nauth-access = write!g' /svn/repos/springcloud_adminconfig/conf/svnserve.conf
-          sudo sed -i 's!# password-db = passwd!password-db = passwd!g' /svn/repos/springcloud_config/conf/svnserve.conf
-          sudo sed -i 's!# authz-db = authz!authz-db = authz!g' /svn/repos/springcloud_config/conf/svnserve.conf
+          sudo sed -i 's!# password-db = passwd!password-db = passwd!g' /svn/repos/springcloud/conf/svnserve.conf
+          sudo sed -i 's!# authz-db = authz!authz-db = authz!g' /svn/repos/springcloud/conf/svnserve.conf
           
           sudo chown -R daemon /svn/repos
           sudo chmod -R 755 /svn/repos
@@ -53,17 +53,17 @@ jobs:
           mkdir ./checkout
           ls -al
           cd ./checkout
-          svn co svn://localhost/springcloud_config --username admin --password 123
+          svn co svn://localhost/springcloud --username admin --password 123
           ls -al
           cd ..
           ls -al
       - name: move git to svn
         run: |
-          mv ./git/ ./checkout/springcloud_config
-          ls -al ./checkout/springcloud_config
+          mv ./git/ ./checkout/springcloud
+          ls -al ./checkout/springcloud
       - name: commit
         run: |
-          cd ./checkout/springcloud_config
+          cd ./checkout/springcloud
           ls -al
           svn add ./git
           sudo svn ci -m "hi, svn" --username admin --password 123
@@ -74,6 +74,6 @@ jobs:
           cd ..
           mkdir new_co
           cd new_co
-          svn co svn://localhost/springcloud_config --username admin --password 123
-          cd springcloud_config
+          svn co svn://localhost/springcloud --username admin --password 123
+          cd springcloud
           ls -al
