@@ -34,7 +34,7 @@ jobs:
           ls -al /svn/repos/springcloud/conf
           sudo sed -i 's!\# harry_sally_and_joe = harry,sally,&joe!\# harry_sally_and_joe = harry,sally,&joe\n\[/\]\n=rw!1' /svn/repos/springcloud/conf/authz
           
-          sudo sed -i 's!sallyssecret!sallyssecret\n$svn_user=$svn_pw!g' /svn/repos/springcloud/conf/passwd
+          sudo sed -i 's!sallyssecret!sallyssecret\nadmin=123!g' /svn/repos/springcloud/conf/passwd
           
           sudo sed -i 's!# anon-access = read!anon-access = read\nauth-access = write!g' /svn/repos/springcloud/conf/svnserve.conf
           sudo sed -i 's!# password-db = passwd!password-db = passwd!g' /svn/repos/springcloud/conf/svnserve.conf
@@ -53,7 +53,7 @@ jobs:
           mkdir ./checkout
           ls -al
           cd ./checkout
-          svn co svn://localhost/springcloud --username admin --password 123
+          svn co svn://localhost/springcloud --username $svn_user --password $svn_pw
           ls -al
           cd ..
           ls -al
