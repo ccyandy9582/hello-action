@@ -33,8 +33,7 @@ jobs:
           echo ===================================================================
           sudo sed -i 's!\# harry_sally_and_joe = harry,sally,&joe!\# harry_sally_and_joe = harry,sally,&joe\n\[/\]\nadmin=rw!1' /svn/repos/springcloud_config/conf/authz
           sudo sed -i 's!sallyssecret!sallyssecret\nadmin=123!g' /svn/repos/springcloud_config/conf/passwd
-          sudo sed -i 's!# anon-access = read!anon-access = read!g' /svn/repos/springcloud_config/conf/svnserve.conf
-          sudo sed -i 's!# anon-access = write!anon-access = write!g' /svn/repos/springcloud_config/conf/svnserve.conf
+          sudo sed -i 's!# anon-access = read!anon-access = read\nanon-access = write!g' /svn/repos/springcloud_config/conf/svnserve.conf
           sudo sed -i 's!# password-db = passwd!password-db = passwd!g' /svn/repos/springcloud_config/conf/svnserve.conf
           sudo sed -i 's!# authz-db = authz!authz-db = authz!g' /svn/repos/springcloud_config/conf/svnserve.conf
           echo ===================================================================
