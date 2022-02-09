@@ -29,11 +29,11 @@ jobs:
           sudo chown -R www-data:www-data /svn/repos/
           ls -al /svn/repos/springcloud_config/conf
           echo ===================================================================
-          cat /svn/repos/springcloud_config/conf/authz
+          cat /svn/repos/springcloud_config/conf/passwd
           echo ===================================================================
-          sudo sed -i 's!\# harry_sally_and_joe = harry,sally,&joe!\[/\]\nadmin=rw!1' /svn/repos/springcloud_config/conf/authz
+          sudo sed -i 's!\# harry_sally_and_joe = harry,sally,&joe!\# harry_sally_and_joe = harry,sally,&joe\n\[/\]\nadmin=rw!1' /svn/repos/springcloud_config/conf/authz
           echo ===================================================================
-          cat /svn/repos/springcloud_config/conf/authz
+          cat /svn/repos/springcloud_config/conf/passwd
       - name: start svn
         run: |
           svnserve -d -r /svn/repos/
