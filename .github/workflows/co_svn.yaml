@@ -59,7 +59,7 @@ jobs:
           cd ./checkout/springcloud_config
           ls -al
           svn add ./git
-          svn ci -m "hi, svn" --username NAME
+          svn ci -m "hi, svn" --username admin --password 123
           svn info
       - name: varify commit result
         run: |
