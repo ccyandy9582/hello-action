@@ -36,7 +36,7 @@ jobs:
           
           sudo sed -i 's!sallyssecret!sallyssecret\n$svn_user=$svn_pw!g' /svn/repos/springcloud/conf/passwd
           
-          sudo sed -i 's!# anon-access = read!anon-access = read\nauth-access = write!g' /svn/repos/springcloud_adminconfig/conf/svnserve.conf
+          sudo sed -i 's!# anon-access = read!anon-access = read\nauth-access = write!g' /svn/repos/springcloud/conf/svnserve.conf
           sudo sed -i 's!# password-db = passwd!password-db = passwd!g' /svn/repos/springcloud/conf/svnserve.conf
           sudo sed -i 's!# authz-db = authz!authz-db = authz!g' /svn/repos/springcloud/conf/svnserve.conf
           
