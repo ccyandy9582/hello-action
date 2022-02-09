@@ -32,7 +32,7 @@ jobs:
           cat /svn/repos/springcloud_config/conf/passwd
           echo ===================================================================
           sudo sed -i 's!\# harry_sally_and_joe = harry,sally,&joe!\# harry_sally_and_joe = harry,sally,&joe\n\[/\]\nadmin=rw!1' /svn/repos/springcloud_config/conf/authz
-          sudo sed -i 's!\[users\]!\[users\]\n\admin=123!2' /svn/repos/springcloud_config/conf/passwd
+          sudo sed -i 's! \# sally = sallyssecret ! \# sally = sallyssecret\nadmin=123 !1' /svn/repos/springcloud_config/conf/passwd
           echo ===================================================================
           cat /svn/repos/springcloud_config/conf/passwd
       - name: start svn
