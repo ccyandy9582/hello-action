@@ -38,7 +38,6 @@ jobs:
           
           sudo chown -R daemon /svn/repos
           sudo chmod -R 755 /svn/repos
-          chown -R www-data:www-data /svn/repos
       - name: start svn
         run: |
           svnserve -d -r /svn/repos/
@@ -60,6 +59,7 @@ jobs:
           ls -al ./checkout/springcloud_config
       - name: commit
         run: |
+          sudo chown -R www-data:www-data /svn/repos
           cd ./checkout/springcloud_config
           ls -al
           svn add ./git
