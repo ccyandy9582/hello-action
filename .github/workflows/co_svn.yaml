@@ -31,7 +31,7 @@ jobs:
           echo ===================================================================
           cat /svn/repos/springcloud_config/conf/authz
           echo ===================================================================
-          sed 's!\[groups\]!\[groups\]\n\[/\]\nadmin=rw!1' /svn/repos/springcloud_config/conf/authz > authz.txt
+          sed 's!\[groups\]!\[groups\]\n\[/\]\nadmin=rw!1' /svn/repos/springcloud_config/conf/authz > auth
           echo ===================================================================
           cat authz
       - name: start svn
