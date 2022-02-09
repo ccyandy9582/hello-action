@@ -28,11 +28,13 @@ jobs:
           sudo chmod 777 /svn/repos/springcloud_config
           sudo chown -R www-data:www-data /svn/repos/
           ls -al /svn/repos/springcloud_config/conf
-          cat /svn/repos/springcloud_config/conf/authz
-          echo ===================================================================
-          sed 's!\[groups\]!\[groups\]\n\[/\]\nadmin=rw!1' /svn/repos/springcloud_config/conf/authz > /svn/repos/springcloud_config/conf/authz
           echo ===================================================================
           cat /svn/repos/springcloud_config/conf/authz
+          echo ===================================================================
+          sed 's!\[groups\]!\[groups\]\n\[/\]\nadmin=rw!1' /svn/repos/springcloud_config/conf/authz > authz
+          echo ===================================================================
+#          cat /svn/repos/springcloud_config/conf/authz
+          cat authz
       - name: start svn
         run: |
           svnserve -d -r /svn/repos/
