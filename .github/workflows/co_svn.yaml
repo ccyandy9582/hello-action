@@ -59,7 +59,7 @@ jobs:
           ls -al ./checkout/springcloud_config
       - name: commit
         run: |
-          sudo chown -R www-data:subversion springcloud_config
+          chmod +s -R /var/www-svn/
           cd ./checkout/springcloud_config
           ls -al
           svn add ./git
