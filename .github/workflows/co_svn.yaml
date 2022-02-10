@@ -5,6 +5,10 @@ name: checkout svn
 on:
   workflow_dispatch:
 
+env:
+  svn_pwd: ${{secrets.SVNPW}}
+  svn_user: ${{secrets.SVNUSER}}
+
 jobs:
   checkout:
     runs-on: ubuntu-latest
@@ -14,6 +18,10 @@ jobs:
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           path: ./git
+      - name: show secrets
+        run: |
+          echo $svn_pwd
+          echo $svn_user
       - name: install svn
         run: |
           sudo apt-get install subversion
@@ -62,7 +70,7 @@ jobs:
           cd ./checkout/springcloud_config
           ls -al
           svn add ./git
-          sudo svn ci -m "hi, svn" --username admin --password 123
+          sudo svn ci -m "hi, svn" --username $svn_user --password $svn_pwd
           svn info
       - name: varify commit result
         run: |
