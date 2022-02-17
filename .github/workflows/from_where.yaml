@@ -1,7 +1,9 @@
 name: after secret POC
 
 on:
-  workflow_run: [secret POC]
+   workflow_run:
+     workflows: [secret POC]
+     types: [completed]
 
 jobs:
   secret:
