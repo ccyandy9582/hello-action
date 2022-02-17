@@ -14,4 +14,4 @@ jobs:
         with:
           path: ./repo
       - name: "say hello"
-        run: echo "hello"
+        run: echo github.ref
