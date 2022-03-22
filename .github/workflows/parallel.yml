@@ -1,0 +1,21 @@
+name: second workflow
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  sleep:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: sleep 1 min
+        run: sleep 1m
+
+  sleep2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: sleep 1 min
+        run: sleep 1m
