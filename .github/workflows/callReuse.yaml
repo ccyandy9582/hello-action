@@ -5,21 +5,9 @@ on:
 
 jobs:
   call-workflow:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          token: ${{secrets.GITHUB_TOKEN}}
-      - name: show path
-        run: echo pwd
-      - uses: ./.github/workflows/reuse.yaml
+    uses: ./.github/workflows/reuse.yaml@main
 
   call-workflow-passing-data:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          token: ${{secrets.GITHUB_TOKEN}}
-      - uses: ./.github/workflows/reuseWithParam.yaml
-        with:
-          username: mona1234
+    uses: ./.github/workflows/reuseWithParam.yaml@main
+    with:
+      username: mona1234
