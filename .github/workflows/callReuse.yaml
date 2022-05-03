@@ -20,4 +20,4 @@ jobs:
           token: ${{secrets.GITHUB_TOKEN}}
       - uses: ./.github/workflows/reuseWithParam.yaml@main
         with:
-          username: mona
+          username: mona1234
