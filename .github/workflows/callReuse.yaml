@@ -13,7 +13,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: ./.github/workflows/reuseWithParam
-      with:
-        username: mona
-      secrets:
-        token: ${{ secrets.TOKEN }}
+        with:
+          username: mona
