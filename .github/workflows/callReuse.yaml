@@ -5,9 +5,9 @@ on:
 
 jobs:
   call-workflow:
-    uses: ./.github/workflows/reuse.yaml@main
+    uses: ./.github/workflows/reuse.yaml@MAIN
 
   call-workflow-passing-data:
-    uses: ./.github/workflows/reuseWithParam.yaml@main
+    uses: ./.github/workflows/reuseWithParam.yaml@MAIN
     with:
       username: mona1234

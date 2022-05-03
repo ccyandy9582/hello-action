@@ -12,6 +12,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Pass input and secrets to my-action
-        uses: ./.github/workflows/my-action
-        with:
-          username: ${{ inputs.username }}
+        run: echo ${{inputs.username}}
