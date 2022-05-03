@@ -10,6 +10,8 @@ jobs:
       - uses: actions/checkout@v2
         with:
           token: ${{secrets.GITHUB_TOKEN}}
+      - name: show path
+        run: echo pwd
       - uses: ./.github/workflows/reuse.yaml
 
   call-workflow-passing-data:
