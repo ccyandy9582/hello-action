@@ -1,0 +1,19 @@
+name: Call a reusable workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  call-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/reuse
+
+  call-workflow-passing-data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/reuseWithParam
+      with:
+        username: mona
+      secrets:
+        token: ${{ secrets.TOKEN }}
