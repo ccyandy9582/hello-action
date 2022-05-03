@@ -7,11 +7,17 @@ jobs:
   call-workflow:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
       - uses: ./.github/workflows/reuse.yaml@main
 
   call-workflow-passing-data:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
       - uses: ./.github/workflows/reuseWithParam.yaml@main
         with:
           username: mona
