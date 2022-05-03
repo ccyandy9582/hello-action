@@ -7,11 +7,11 @@ jobs:
   call-workflow:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/reuse.yaml
+      - uses: ./.github/workflows/reuse.yaml@main
 
   call-workflow-passing-data:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/reuseWithParam
+      - uses: ./.github/workflows/reuseWithParam.yaml@main
         with:
           username: mona
