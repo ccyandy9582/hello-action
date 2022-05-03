@@ -1,0 +1,14 @@
+name: Reusable workflow example in folder
+
+on:
+  workflow_call:
+
+jobs:
+  sleep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+      - name: show message
+        run: echo "reuse"
