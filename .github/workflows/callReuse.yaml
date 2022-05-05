@@ -21,7 +21,7 @@ jobs:
       - uses: ./.github/workflows/reuse
 
   call-workflow-passing-data:
-    uses: ./.github/workflows/reuseWithParam
+    uses: ./.github/workflows/reuseWithParam.yaml
     with:
       username: "asdjhasjdhui1"
           
