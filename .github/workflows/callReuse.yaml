@@ -9,9 +9,9 @@ jobs:
       run: |
         pwd
   call-workflow:
-    uses: ./.github/workflows/reuse.yaml@main
+    uses: ./.github/workflows/reuse.yaml
 
   call-workflow-passing-data:
-    uses: ./.github/workflows/reuseWithParam.yaml@main
+    uses: ./.github/workflows/reuseWithParam.yaml
     with:
       username: mona1234
