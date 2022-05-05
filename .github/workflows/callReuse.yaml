@@ -4,10 +4,14 @@ on:
   workflow_dispatch:
 
 jobs:
+  show-pwd:
+    - uses: actions/checkout@v2
+      run: |
+        pwd
   call-workflow:
-    uses: .github/workflows/reuse.yaml@main
+    uses: ./.github/workflows/reuse.yaml@main
 
   call-workflow-passing-data:
-    uses: .github/workflows/reuseWithParam.yaml@main
+    uses: ./.github/workflows/reuseWithParam.yaml@main
     with:
       username: mona1234
