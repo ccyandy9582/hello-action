@@ -18,12 +18,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/workflows/reuse.yaml
+      - uses: ./.github/workflows/reuse
 
   call-workflow-passing-data:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/workflows/reuseWithParam.yaml
+      - uses: ./.github/workflows/reuseWithParam
         with:
           username: mona1234
