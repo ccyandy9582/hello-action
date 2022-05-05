@@ -5,6 +5,7 @@ on:
 
 jobs:
   show-pwd:
+    - runs-on: ubuntu-latest
     - uses: actions/checkout@v2
       run: |
         pwd
