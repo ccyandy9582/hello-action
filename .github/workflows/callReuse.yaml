@@ -21,9 +21,7 @@ jobs:
       - uses: ./.github/workflows/reuse
 
   call-workflow-passing-data:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ./.github/workflows/reuseWithParam
-        with:
-          username: "asdjhasjdhui1"
+    uses: ./.github/workflows/reuseWithParam
+    with:
+      username: "asdjhasjdhui1"
+          
