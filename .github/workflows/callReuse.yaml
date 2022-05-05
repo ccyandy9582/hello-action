@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: |
           pwd
-          ls -al
+          ls -al ./.github/workflows/
   call-workflow:
     runs-on: ubuntu-latest
     steps: 
