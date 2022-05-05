@@ -5,10 +5,11 @@ on:
 
 jobs:
   show-pwd:
-    - runs-on: ubuntu-latest
-    - uses: actions/checkout@v2
-      run: |
-        pwd
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v2
+      - run: |
+          pwd
   call-workflow:
     uses: ./.github/workflows/reuse.yaml
 
