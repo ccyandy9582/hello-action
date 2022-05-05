@@ -2,6 +2,7 @@ name: Call a reusable workflow
 
 on:
   workflow_dispatch:
+  push:
     branches:
       - main
 
@@ -15,12 +16,14 @@ jobs:
           ls -al ./.github/workflows/
   call-workflow:
     runs-on: ubuntu-latest
-    steps: 
+    steps:
+      - uses: actions/checkout@v2
       - uses: ./.github/workflows/reuse.yaml
 
   call-workflow-passing-data:
     runs-on: ubuntu-latest
-    steps: 
+    steps:
+      - uses: actions/checkout@v2
       - uses: ./.github/workflows/reuseWithParam.yaml
         with:
           username: mona1234
