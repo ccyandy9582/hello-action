@@ -11,7 +11,7 @@ on:
       - main
 jobs:
   call-workflow:
-    uses: ./.github/workflows/reuse.yaml
+    uses: ./.github/workflows/resue.yaml
     secrets:
       token: ${{secrets.GITHUB_TOKEN}}
 
