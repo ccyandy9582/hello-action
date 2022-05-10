@@ -1,11 +1,9 @@
 name: Call a reusable workflow
-
 on:
   workflow_dispatch:
   push:
     branches:
       - main
-
 jobs:
   show-pwd:
     runs-on: ubuntu-latest
@@ -14,9 +12,13 @@ jobs:
       - run: |
           pwd
           ls -al ./.github/workflows/
+  call-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/workflows/reuse.yaml
 
   call-workflow-passing-data:
-    uses: ccyandy9582/hello-action/.github/workflows/reuseWithParam.yaml@main
+    uses: ./.github/workflows/reuseWithParam.yaml
     with:
       username: "asdjhasjdhui1"
-          
