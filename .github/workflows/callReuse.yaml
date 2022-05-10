@@ -5,17 +5,14 @@ on:
     branches:
       - main
 jobs:
-  show-pwd:
-    runs-on: ubuntu-latest
-    steps: 
-      - uses: actions/checkout@v2
-      - run: |
-          pwd
-          ls -al ./.github/workflows/
   call-workflow:
-    uses: ccyandy9582/hello-action/.github/workflows/reuse.yaml@main
+    uses: ./.github/workflows/reuse.yaml
+    secrets:
+      token: ${{secrets.GITHUB_TOKEN}}
 
   call-workflow-passing-data:
-    uses: ccyandy9582/hello-action/.github/workflows/reuseWithParam.yaml@main
+    uses: ./.github/workflows/reuseWithParam.yaml
     with:
       username: "asdjhasjdhui1"
+    secrets:
+      token: ${{secrets.GITHUB_TOKEN}}
