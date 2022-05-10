@@ -13,11 +13,9 @@ jobs:
           pwd
           ls -al ./.github/workflows/
   call-workflow:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: ccyandy9582/hello-action/.github/workflows/reuse.yaml@main
+    uses: ccyandy9582/hello-action/.github/workflows/reuse.yaml@main
 
   call-workflow-passing-data:
-    uses: ./.github/workflows/reuseWithParam.yaml
+    uses: ccyandy9582/hello-action/.github/workflows/reuseWithParam.yaml@main
     with:
       username: "asdjhasjdhui1"
