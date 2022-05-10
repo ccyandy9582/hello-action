@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/workflows/reuse.yaml
+      - uses: ./.github/workflows/reuse.yaml@main
 
   call-workflow-passing-data:
     uses: ./.github/workflows/reuseWithParam.yaml
