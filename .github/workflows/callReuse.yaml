@@ -12,12 +12,8 @@ on:
 jobs:
   call-workflow:
     uses: ./.github/workflows/resue.yaml
-    secrets:
-      token: ${{secrets.GITHUB_TOKEN}}
 
   call-workflow-passing-data:
     uses: ./.github/workflows/reuseWithParams.yaml
     with:
       username: "asdjhasjdhui1"
-    secrets:
-      token: ${{secrets.GITHUB_TOKEN}}
